@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Resto_API.Utilities.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Resto_API.Models
 {
@@ -15,7 +16,7 @@ namespace Resto_API.Models
         public string Address { get; set; }
         [Column("email")]
         public string Email { get; set; }
-        //[Column("gender")]
-        //public Gender Gender { get; set; }
+        [Column("gender")]
+        public Gender Gender { get; set; }
     }
 }
