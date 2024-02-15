@@ -3,7 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-appsettings.json
+Resto-API/Migrations
+Resto-API/appsettings.json
+Resto-Client/appsettings.json
 
 # User-specific files
 *.rsuser
