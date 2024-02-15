@@ -18,5 +18,9 @@ namespace Resto_API.Models
         public string Email { get; set; }
         [Column("gender")]
         public Gender Gender { get; set; }
+
+        public Account? Account { get; set; }
+        public ICollection<Transaction>? Transactions { get; set; }
+
     }
 }

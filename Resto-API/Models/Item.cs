@@ -15,5 +15,7 @@ namespace Resto_API.Models
         public string Image { get; set; }
         [Column("Category")]
         public string Category { get; set; }
+
+        public ICollection<Order>? Orders { get; set; }
     }
 }

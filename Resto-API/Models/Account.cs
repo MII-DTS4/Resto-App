@@ -13,5 +13,8 @@ namespace Resto_API.Models
         public bool IsUsed { get; set; }
         [Column("expired_date")]
         public DateTime ExpiredDate { get; set; }
+
+        public Customer? Customer { get; set; }
+        public  ICollection<AccountRole>? AccountRoles { get; set; }
     }
 }

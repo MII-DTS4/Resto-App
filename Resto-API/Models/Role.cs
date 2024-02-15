@@ -7,5 +7,7 @@ namespace Resto_API.Models
     {
         [Column("role_name", TypeName = "nvarchar(50)")]
         public string RoleName { get; set; }
+
+        public ICollection<AccountRole>? AccountRoles { get; set; }
     }
 }
