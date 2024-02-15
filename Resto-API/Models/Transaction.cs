@@ -8,8 +8,6 @@ namespace Resto_API.Models
     {
         [Column("customer_guid")]
         public Guid CustomerGuid { get; set; }
-        [Column("order_guid")]
-        public Guid OrderGuid { get; set; }
         [Column("price_transaction")]
         public int PriceTransaction { get; set; }
         [Column("status")]
@@ -17,7 +15,7 @@ namespace Resto_API.Models
         [Column("invoice")]
         public string Invoice { get; set; }
 
-        public Order? Order { get; set; }
+        public ICollection<Order>? Orders { get; set; }
         public Customer? Customer { get; set; }
     }
 }

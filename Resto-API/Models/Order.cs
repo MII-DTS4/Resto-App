@@ -16,6 +16,6 @@ namespace Resto_API.Models
         public string? Remarks { get; set; }
 
         public Item? Item { get; set; }
-        public ICollection<Transaction>? Transactions { get; set; }
+        public Transaction? Transaction { get; set; }
     }
 }
