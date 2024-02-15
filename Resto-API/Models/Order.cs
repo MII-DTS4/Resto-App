@@ -2,6 +2,7 @@
 
 namespace Resto_API.Models
 {
+    [Table("tb_m_order")]
     public class Order : GeneralAttribute
     {
         [Column("transaction_guid")]
