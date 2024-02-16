@@ -29,14 +29,17 @@ namespace Resto_API.Controllers
             {
                 var priceTransaction = 0;
                 var invoice = "";
-                foreach(Order order in createOrderDtos)
+
+                foreach (Order order in createOrderDtos)
                 {
                     priceTransaction += order.TotalPrice * order.TotalItem;
                     _orderRepository.Create(order);
                 }
+                Transaction createtransact = CreateTransactionDto.CreateTransaction(priceTransaction, invoice);
+                createtransact.CustomerGuid = createOrderDtos.First().CustomerGuid;
+                var result = _transactionRepository.Create(createtransact);
 
-                Transaction Createtransact = CreateTransactionDto.CreateTransaction(priceTransaction, invoice);
-                _transactionRepository.Create(Createtransact);
+                
 
                 return Ok(new ResponseOkHandler<string>("Data Created Successfully"));
             }

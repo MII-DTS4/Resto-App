@@ -5,7 +5,7 @@ using Resto_API.Models;
     public class CreateOrderDto
     {
         public Guid ItemGuid { get; set; }
-        public Guid TransactionGuid { get; set; }
+        public Guid CustomerGuid { get; set; }
         public int TotalItem { get; set; }
         public int TotalPrice { get; set; }
 
@@ -15,7 +15,7 @@ using Resto_API.Models;
             {
                 Guid = Guid.NewGuid(),
                 ItemGuid = createOrderDto.ItemGuid,
-                TransactionGuid = createOrderDto.TransactionGuid,
+                CustomerGuid = createOrderDto.CustomerGuid,
                 TotalItem = createOrderDto.TotalItem,
                 TotalPrice = createOrderDto.TotalPrice,
                 CreatedDate = DateTime.Now,

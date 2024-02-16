@@ -7,9 +7,7 @@ namespace Resto_API.DTOs.Transactions
     {
         public Guid Guid { get; set; }
         public Guid CustomerGuid { get; set; }
-        public int PriceTransaction { get; set; }
         public StatusLevel Status { get; set; }
-        public string Invoice { get; set; }
         public string Remarks { get; set; }
 
         public static Transaction ConvertToTransaction(Transaction transaction, TransactionDto transactionDto)

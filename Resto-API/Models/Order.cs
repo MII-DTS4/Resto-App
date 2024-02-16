@@ -5,8 +5,8 @@ namespace Resto_API.Models
     [Table("tb_m_order")]
     public class Order : GeneralAttribute
     {
-        [Column("transaction_guid")]
-        public Guid TransactionGuid { get; set; }
+        [Column("customer_guid")]
+        public Guid CustomerGuid { get; set; }
         [Column("item_guid")]
         public Guid ItemGuid { get; set; }
         [Column("total_item")]
