@@ -14,7 +14,8 @@ namespace Resto_API.Models
         public StatusLevel Status { get; set; }
         [Column("invoice")]
         public string Invoice { get; set; }
-
+        [Column("remarks")]
+        public string? Remarks { get; set; }
         public ICollection<Order>? Orders { get; set; }
         public Customer? Customer { get; set; }
     }

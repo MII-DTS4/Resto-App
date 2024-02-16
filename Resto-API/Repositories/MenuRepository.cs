@@ -4,9 +4,9 @@ using Resto_API.Models;
 
 namespace Resto_API.Repositories
 {
-    public class MenuRepository : GeneralRepository<Item>
+    public class MenuRepository : GeneralRepository<Item> , IMenuRepository
     {
-        protected MenuRepository(RestoAppDbContext context) : base(context)
+        public MenuRepository(RestoAppDbContext context) : base(context)
         {
         }
     }

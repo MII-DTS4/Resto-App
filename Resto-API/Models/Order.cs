@@ -13,8 +13,6 @@ namespace Resto_API.Models
         public int TotalItem { get; set; }
         [Column("total_price")]
         public int TotalPrice { get; set; }
-        [Column("remarks")]
-        public string? Remarks { get; set; }
 
         public Item? Item { get; set; }
         public Transaction? Transaction { get; set; }
