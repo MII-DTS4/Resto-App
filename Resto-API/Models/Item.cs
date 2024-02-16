@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Resto_API.Utilities.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Resto_API.Models
 {
@@ -14,7 +15,7 @@ namespace Resto_API.Models
         [Column("image")]
         public string Image { get; set; }
         [Column("Category")]
-        public string Category { get; set; }
+        public Category Category { get; set; }
 
         public ICollection<Order>? Orders { get; set; }
     }
