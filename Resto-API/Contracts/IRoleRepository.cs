@@ -4,5 +4,6 @@ namespace Resto_API.Contracts
 {
     public interface IRoleRepository : IGeneralRepository<Role>
     {
+        Guid? getDefaultRoleCust();
     }
 }
