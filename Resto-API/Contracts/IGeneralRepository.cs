@@ -2,13 +2,13 @@
 
 namespace Resto_API.Contracts
 {
-    public class IGeneralRepository<TEntity>
+    public interface IGeneralRepository<TEntity>
     {
-        //RestoAppDbContext GetContext();
-        //IEnumerable<TEntity> GetAll();
-        //TEntity? GetByGuid(Guid guid);
-        //TEntity? Create(TEntity entity);
-        //bool Update(TEntity entity);
-        //bool Delete(TEntity entity);
+        RestoAppDbContext GetContext();
+        IEnumerable<TEntity> GetAll();
+        TEntity? GetByGuid(Guid guid);
+        TEntity? Create(TEntity entity);
+        bool Update(TEntity entity);
+        bool Delete(TEntity entity);
     }
 }
