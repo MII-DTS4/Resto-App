@@ -43,7 +43,7 @@ namespace Resto_API.Data
             modelBuilder.Entity<Transaction>()
                 .HasMany(t => t.Orders)
                 .WithOne(o => o.Transaction)
-                .HasForeignKey(o => o.TransactionGuid);
+                .HasForeignKey(o => o.CustomerGuid);
 
             modelBuilder.Entity<Item>()
                 .HasMany(i => i.Orders)
