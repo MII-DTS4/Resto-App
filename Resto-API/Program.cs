@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Resto_API.Contracts;
 using Resto_API.Data;
+using Resto_API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<RestoAppDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+//builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
