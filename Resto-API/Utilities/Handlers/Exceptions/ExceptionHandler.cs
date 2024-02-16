@@ -1,4 +1,4 @@
-﻿namespace API.Utilities.Handlers.Exceptions
+﻿namespace Resto_API.Utilities.Handlers.Exceptions
 {
     public class ExceptionHandler : Exception
     {

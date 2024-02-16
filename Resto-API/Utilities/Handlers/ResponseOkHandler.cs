@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace API.Utilities.Handlers
+namespace Resto_API.Utilities.Handlers
 {
 
     //class untuk response ok 

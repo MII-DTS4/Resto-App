@@ -1,4 +1,4 @@
-﻿namespace API.Utilities.Handlers
+﻿namespace Resto_API.Utilities.Handlers
 {
     public class HashHandler
     {

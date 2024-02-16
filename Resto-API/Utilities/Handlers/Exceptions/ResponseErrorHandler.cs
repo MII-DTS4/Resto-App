@@ -1,4 +1,4 @@
-﻿namespace API.Utilities.Handlers.Exceptions
+﻿namespace Resto_API.Utilities.Handlers.Exceptions
 {
     //membuat ckass untuk response error
     public class ResponseErrorHandler

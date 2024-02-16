@@ -1,5 +1,5 @@
-﻿using API.Utilities.Handlers;
-using API.Utilities.Handlers.Exceptions;
+﻿using Resto_API.Utilities.Handlers;
+using Resto_API.Utilities.Handlers.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Resto_API.Contracts;
 using Resto_API.DTOs.Menu;

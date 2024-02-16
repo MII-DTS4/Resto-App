@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace API.Utilities.Handlers.Exceptions
+namespace Resto_API.Utilities.Handlers.Exceptions
 {
     //kelas khusus untuk notfound error
     public class ResponseNotFoundHandler : ResponseErrorHandler
