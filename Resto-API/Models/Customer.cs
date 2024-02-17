@@ -13,7 +13,7 @@ namespace Resto_API.Models
         [Column("phone_number")]
         public string PhoneNumber { get; set; }
         [Column("address")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [Column("email")]
         public string Email { get; set; }
         [Column("gender")]

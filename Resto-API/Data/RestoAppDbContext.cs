@@ -49,7 +49,25 @@ namespace Resto_API.Data
                 .HasMany(i => i.Orders)
                 .WithOne(o => o.Item)
                 .HasForeignKey(o => o.ItemGuid);
-        }
 
+            modelBuilder.Entity<Role>().HasData(
+                new Role { Guid = Guid.NewGuid(), RoleName = "Customer", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
+                new Role { Guid = Guid.NewGuid(), RoleName = "Admin", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now }
+                );
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer
+                {
+                    Guid = Guid.NewGuid(),
+                    FirstName = "Ann",
+                    LastName = "Tony",
+                    PhoneNumber = "082234435555",
+                    Address = "another world",
+                    Email = "ann.tony@email.com",
+                    Gender = 0,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                }
+                );
+        }
     }
 }
