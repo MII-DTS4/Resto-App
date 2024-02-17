@@ -4,5 +4,6 @@ namespace Resto_API.Contracts
 {
     public interface IAccountRepository : IGeneralRepository<Account>
     {
+
     }
 }

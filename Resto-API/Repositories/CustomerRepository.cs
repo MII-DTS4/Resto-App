@@ -11,5 +11,6 @@ namespace Resto_API.Repositories
         {
             _contextRole = context;
         }
+
     }
 }

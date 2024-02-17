@@ -1,7 +1,7 @@
 ﻿using Resto_API.DTOs;
 using Resto_API.Models;
 
-namespace API.DTO.Accounts
+namespace Resto_API.DTOs.Accounts
 {
     public class AccountDto : GeneralGuid
     {
@@ -11,9 +11,10 @@ namespace API.DTO.Accounts
         public bool IsUsed { get; set; }
         public int Otp { get; set; }
         public DateTime ExpiredDate { get; set; }
+
         public static explicit operator AccountDto(Account acc)
         {
-            
+
             return new AccountDto
             {
                 Guid = acc.Guid,
@@ -26,7 +27,6 @@ namespace API.DTO.Accounts
 
         public static implicit operator Account(AccountDto accDto)
         {
-            // konversi DTO ke Model University agar dapat diproses oleh Repository-Model
             return new Account
             {
                 Guid = accDto.Guid,
@@ -34,8 +34,10 @@ namespace API.DTO.Accounts
                 IsUsed = accDto.IsUsed,
                 Otp = accDto.Otp,
                 ExpiredDate = accDto.ExpiredDate,
+                CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             };
         }
+        
     }
 }

@@ -2,7 +2,7 @@
 using Resto_API.DTOs;
 using Resto_API.Models;
 
-namespace API.DTO.AccountRoles
+namespace Resto_API.DTOs.AccountRoles
 {
     public class AccountRoleDto : GeneralGuid
     {
@@ -25,6 +25,7 @@ namespace API.DTO.AccountRoles
                 Guid = accRoleDto.Guid,
                 AccountGuid = accRoleDto.AccountGuid,
                 RoleGuid = accRoleDto.RoleGuid,
+                CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now
             };
         }

@@ -11,5 +11,23 @@ namespace Resto_API.Repositories
         {
             _contextRole = context;
         }
+        public AccountRole? CreateAccRole(Guid entity,Guid role)
+        {
+            try
+            {
+                var newAccRole = new AccountRole
+                {
+                    AccountGuid = entity,
+                    RoleGuid = role
+                };
+                _contextRole.Set<AccountRole>().Add(newAccRole);
+                _contextRole.SaveChanges();
+                return newAccRole;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

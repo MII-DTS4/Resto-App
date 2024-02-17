@@ -14,7 +14,7 @@ namespace Resto_API.Repositories
         public Guid? getDefaultRoleCust()
         {
             // Mengambil role user berdasarkan nama role.
-            return _context.Set<Role>().FirstOrDefault(role => role.RoleName == "customer")?.Guid;
+            return _context.Set<Role>().FirstOrDefault(role => role.RoleName == "Customer")?.Guid;
         }
     }
 }
