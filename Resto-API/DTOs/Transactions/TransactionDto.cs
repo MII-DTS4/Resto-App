@@ -1,4 +1,5 @@
-﻿using Resto_API.Models;
+﻿using Resto_API.DTOs.AccountRoles;
+using Resto_API.Models;
 using Resto_API.Utilities.Enums;
 
 namespace Resto_API.DTOs.Transactions
@@ -15,6 +16,16 @@ namespace Resto_API.DTOs.Transactions
             transaction.Status = transactionDto.Status;
             transaction.ModifiedDate = DateTime.Now;
             return transaction;
+        }
+        public static explicit operator TransactionDto(Transaction transaction)
+        {
+            return new TransactionDto
+            {
+                Guid = transaction.Guid,
+                CustomerGuid = transaction.CustomerGuid,
+                Status = transaction.Status,
+                Remarks = transaction.Remarks
+            };
         }
     }
 }

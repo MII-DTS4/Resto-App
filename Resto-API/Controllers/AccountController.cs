@@ -94,8 +94,8 @@ namespace Resto_API.Controllers
                 {
                     var getAccount = _accountRepository.GetByGuid(getCustomer.Guid);
 
-                    //if (!HashHandler.verifvyPassword(loginDto.Password, getAccount.Password))
-                    //    return BadRequest(new ResponseValidatorHandler("Password is invalid"));
+                    if (!HashHandler.verifvyPassword(loginDto.Password, getAccount.Password))
+                        return BadRequest(new ResponseValidatorHandler("Password is invalid"));
                     return Ok(new ResponseOkHandler<Account>(getAccount));
                 }
                 return Ok(new ResponseOkHandler<Customer>(getCustomer));

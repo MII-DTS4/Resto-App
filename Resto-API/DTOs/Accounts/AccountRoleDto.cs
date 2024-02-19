@@ -8,6 +8,8 @@ namespace Resto_API.DTOs.AccountRoles
     {
         public Guid AccountGuid { get; set; }
         public Guid RoleGuid { get; set; }
+        public string? Email { get; set; }
+        public string? Role { get; set; }
         public static explicit operator AccountRoleDto(AccountRole accRole)
         {
             return new AccountRoleDto

@@ -17,7 +17,17 @@ namespace Resto_API.Controllers
         {
             _transactionRepository = transactionRepository;
         }
-
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _transactionRepository.GetAll();
+            if (!result.Any())
+            {
+                return NotFound(new ResponseNotFoundHandler("Data Not Found"));
+            }
+            var data = result.Select(i => (TransactionDto)i);
+            return Ok(new ResponseOkHandler<IEnumerable<TransactionDto>>(data));
+        }
         [HttpPut]
         public IActionResult Update(TransactionDto transactionDto)
         {

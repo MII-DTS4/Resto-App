@@ -6,6 +6,7 @@ using Resto_API.Utilities.Handlers.Exceptions;
 using Resto_API.Utilities.Handlers;
 using Resto_API.DTOs.Wishlist;
 using Resto_API.DTOs.Transactions;
+using Resto_API.Repositories;
 
 namespace Resto_API.Controllers
 {
@@ -21,7 +22,16 @@ namespace Resto_API.Controllers
             _orderRepository = orderRepository;
             _transactionRepository = transactionRepository;
         }
-
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _orderRepository.GetAll();
+            if (!result.Any())
+            {
+                return NotFound(new ResponseNotFoundHandler("Data Not Found"));
+            }
+            return Ok(new ResponseOkHandler<IEnumerable<Order>>(result));
+        }
         [HttpPost]
         public IActionResult Create(ICollection<CreateOrderDto> createOrderDtos)
         {
