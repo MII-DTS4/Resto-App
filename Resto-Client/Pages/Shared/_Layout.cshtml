@@ -32,22 +32,52 @@
     </header>
     <div class="row">
 
-        <div class="container col-8 mt-3">
+        <div class=" col-10 " style="background-color: hsla(9, 0%, 64%, 0.1)">
              @RenderBody()
       
         </div>
 
-        <div class="col-2 border border-dark rounded">
-
-            <h4>Keranjang</h4>
+        <div class="container col-2">
+            <div class="d-flex flex-column" style="width:100%; height:100%;">
+                <div class="my-3">
+                    <span class="fw-bold" style="font-size:1rem;">Current Order</span>
+                </div>
+                <div class="flex-lg-grow-1 me-3">
+                    <div class="card">
+                        <div class="d-flex">
+                            <img style="object-fit:cover; height:100%; width:28%;" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Image" />
+                            <div class="ms-3">
+                                <div class="d-flex flex-column gap-2">
+                                    <div>
+                                        <span class="fw-bold">
+                                            Sayur
+                                        </span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <span style="color:aquamarine">$10.0</span>
+                                        </div>
+                                        <div>
+                                            <button>-</button>
+                                            <span>1</span>
+                                            <button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="d-flex align-items-end mx-auto mb-3">
+                    <button type="button" class="btn  btn-success">Order</button>
+                </div>
+            </div>
+            
         </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Resto_Client - <a asp-area="" asp-page="/Drink">Privacy</a>
-        </div>
-    </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
