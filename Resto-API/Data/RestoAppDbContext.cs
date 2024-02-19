@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resto_API.Models;
+using Resto_API.Utilities.Handlers;
 
 namespace Resto_API.Data
 {
@@ -50,20 +51,44 @@ namespace Resto_API.Data
                 .WithOne(o => o.Item)
                 .HasForeignKey(o => o.ItemGuid);
 
+            Guid adminRole = Guid.NewGuid();
+            Guid adminCust = Guid.NewGuid();
             modelBuilder.Entity<Role>().HasData(
                 new Role { Guid = Guid.NewGuid(), RoleName = "Customer", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
-                new Role { Guid = Guid.NewGuid(), RoleName = "Admin", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now }
+                new Role { Guid = adminRole, RoleName = "Admin", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now }
                 );
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
-                    Guid = Guid.NewGuid(),
+                    Guid = adminCust,
                     FirstName = "Ann",
                     LastName = "Tony",
                     PhoneNumber = "082234435555",
                     Address = "another world",
                     Email = "ann.tony@email.com",
                     Gender = 0,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                }
+                );
+            modelBuilder.Entity<Account>().HasData(
+                new Account
+                {
+                    Guid = adminCust,
+                    Password = HashHandler.HashPassword("12345678"),
+                    Otp = 0,
+                    IsUsed = true,
+                    ExpiredDate = DateTime.Now,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                }
+                );
+            modelBuilder.Entity<AccountRole>().HasData(
+                new AccountRole
+                {
+                    Guid = adminCust,
+                    AccountGuid = adminCust,
+                    RoleGuid = adminRole,
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now
                 }
