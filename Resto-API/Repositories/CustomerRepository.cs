@@ -11,6 +11,9 @@ namespace Resto_API.Repositories
         {
             _contextRole = context;
         }
-
+        public Customer? GetByEmail(string email)
+        {
+            return _context.Set<Customer>().SingleOrDefault(c => c.Email.Contains(email));
+        }
     }
 }

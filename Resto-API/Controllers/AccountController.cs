@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Resto_API.Contracts;
@@ -10,6 +11,7 @@ using Resto_API.Models;
 using Resto_API.Repositories;
 using Resto_API.Utilities.Handlers;
 using Resto_API.Utilities.Handlers.Exceptions;
+using System.Security.Claims;
 namespace Resto_API.Controllers
 {
     [ApiController]
@@ -81,7 +83,28 @@ namespace Resto_API.Controllers
                     new ResponseInternalServerErrorHandler("Failed to create data", ex.Message));
             }
         }
+        [HttpPost("login")]
+        [AllowAnonymous]
+        public IActionResult Login(LoginDto loginDto)
+        {
+            try
+            {
+                var getCustomer = _customerRepository.GetByEmail(loginDto.Email);
+                if (getCustomer is not null)
+                {
+                    var getAccount = _accountRepository.GetByGuid(getCustomer.Guid);
 
+                    //if (!HashHandler.verifvyPassword(loginDto.Password, getAccount.Password))
+                    //    return BadRequest(new ResponseValidatorHandler("Password is invalid"));
+                    return Ok(new ResponseOkHandler<Account>(getAccount));
+                }
+                return Ok(new ResponseOkHandler<Customer>(getCustomer));
+            }
+            catch (ExceptionHandler e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new ResponseInternalServerErrorHandler("Failed Login", e.Message));
+            }
+        }
         [HttpPut]
         public IActionResult Update(AccountDto accDto)
         {
